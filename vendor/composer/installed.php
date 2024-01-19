@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'alex507rocha/ecommerce',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'name' => 'hcodebr/ecommerce',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '72b31d987b158bb6a434183f51f53f3672a0a4a9',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'alex507rocha/ecommerce' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+        'hcodebr/ecommerce' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '72b31d987b158bb6a434183f51f53f3672a0a4a9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

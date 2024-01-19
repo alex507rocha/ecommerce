@@ -1,29 +1,58 @@
 <?php 
-
+session_start();
 require_once("vendor/autoload.php");
 
-USE \Slim\Slim;
-use \Hcode\Page;
-use \Hcode\PageAdmin;
 
-$app = new Slim();
+use Hcode\Model\User;
 
+$app = new \Slim\Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
+    
+	$page = new Hcode\Page();
 
-	$Page = new Page();
-	$Page->setTpl("index");
-
+	$page->setTpl("index");
 
 });
 
 $app->get('/admin', function() {
+    
+	User::verifyLogin();
 
-	$Page = new PageAdmin();
-	$Page->setTpl("index");
+	$page = new Hcode\PageAdmin();
 
+	$page->setTpl("index");
+
+});
+
+$app->get('/admin/login', function() {
+    
+	$page = new Hcode\PageAdmin([
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("login");
+
+});
+
+$app->post('/admin/login', function() {
+
+	User::login($_POST["deslogin"], $_POST["despassword"]);
+
+	header("Location: /admin");
+	exit;
+
+});
+
+$app->get('/admin/logout', function() {
+
+	User::logout();
+
+	header("Location: /admin/login");
+	exit;
 
 });
 

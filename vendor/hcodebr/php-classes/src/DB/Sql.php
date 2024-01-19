@@ -4,23 +4,21 @@ namespace Hcode\DB;
 
 class Sql {
 
-	const HOSTNAME = "127.0.0.1";
-	const USERNAME = "root";
-	const PASSWORD = "root";
-	const DBNAME = "db_ecommerce";
+const HOSTNAME = "localhost";
+const USERNAME = "root";
+const PASSWORD = "";
+const DBNAME = "db_ecommerce";
 
-	private $conn;
+private $conn;
 
-	public function __construct()
-	{
-
-		$this->conn = new \PDO(
-			"mysql:dbname=".Sql::DBNAME.";host=".Sql::HOSTNAME, 
-			Sql::USERNAME,
-			Sql::PASSWORD
-		);
-
-	}
+public function __construct()
+{var_dump("passei 2");
+	$this->conn = new \PDO(	
+		"mysql:dbname=".Sql::DBNAME.";host=".Sql::HOSTNAME, 
+		Sql::USERNAME,
+		Sql::PASSWORD
+	);
+}
 
 	private function setParams($statement, $parameters = array())
 	{
